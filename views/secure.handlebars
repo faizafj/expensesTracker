@@ -1,18 +1,17 @@
-
 <!doctype html>
 
 <html lang="en">
 	<head>
 		<meta charset="utf-8">
-		<title>Home Page</title>
-		<meta name="description" content="form to add new books">
-		<meta name="author" content="Mark Tyers">
+		<title>Homepage</title>
+		<meta name="description" content="Form to view Business Expenses ">
+		<meta name="author" content="Faiza Javed">
 		<link href="{{host}}/style.css" type="text/css" rel="stylesheet" />
 		<script type="module" src="{{host}}/main.js"></script>
 	</head>
 	<body>
 		<header>
-		<h1>Secure Page</h1>
+		<h1>Expenses Tracker</h1>
 		<a href="/logout">Log out</a>
 		</header>
 		{{#if msg}}
@@ -23,6 +22,17 @@
 		<main>
 		<p>This is a secure page. Users need to have a valid account and be logged in to see it.</p>
 		<p><a href="/">Home page</a></p>
+	<table>
+		<tr><th>Title</th> <th>Price (£)</th> <th> Description </th> <th>Date Of Expense</th></tr>		
+		{{#each records}}
+		<tr>			
+			<td> {{this.title}} </td>		
+			<td> {{this.price}} </td>		
+			<td> {{this.description}} </td>
+			<td> {{this.dateOfExpense}} </td>
+		</tr>
+		{{/each}}
+	</table>						
 		</main>
 	</body>
 </html>

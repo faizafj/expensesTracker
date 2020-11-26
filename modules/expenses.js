@@ -25,18 +25,17 @@ class Expenses {
 	description TEXT NOT NULL,\
 	dateOfExpense TEXT DEFAULT CURRENT_TIMESTAMP,\
 	FOREIGN KEY (userid) REFERENCES user(id)\
-	);' 
+	);'
 			await this.db.run(sql)
 			return this
 		})()
 	}
 
 	/**
-	 * retrieves all the expenses 
+	 * retrieves all the expenses
 	 * returns an Array which contains all the expenses data.
 */
-	
-	async all () {
+	async all() {
 		const sql = 'SELECT users.user, expenses.* FROM expenses, users\ WHERE expenses.userid;'
 		const expenses = await this.db.all(sql)
 		return expenses
