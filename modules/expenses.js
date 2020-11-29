@@ -32,14 +32,19 @@ class Expenses {
 	}
 
 	/**
-	 * retrieves all the expenses
+	 * retrieves all the expenses data
 	 * returns an Array which contains all the expenses data.
+	 * This also sorts the Date field so that it is organised as DD/MM/YYYY
 */
 	async all() {
-		const sql = 'SELECT users.user, expenses.* FROM expenses, users\ WHERE expenses.userid;'
+		const sql = 'SELECT users.user, expenses.* FROM expenses, users\ WHERE expenses.userid = users.id;'
 		const expenses = await this.db.all(sql)
+		for (const index in expenses) {
+			const dateTime = new Date(expenses[index].dateOfExpense)
+			const date = `${dateTime.getDate()}/${dateTime.getMonth()+1}/${dateTime.getFullYear()}`
+			expenses[index].dateOfExpense = date
+		}
 		return expenses
 	}
 }
-
 export default Expenses

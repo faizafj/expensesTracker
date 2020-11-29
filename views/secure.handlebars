@@ -3,7 +3,7 @@
 <html lang="en">
 	<head>
 		<meta charset="utf-8">
-		<title>Homepage</title>
+		<title>Expenses Page</title>
 		<meta name="description" content="Form to view Business Expenses ">
 		<meta name="author" content="Faiza Javed">
 		<link href="{{host}}/style.css" type="text/css" rel="stylesheet" />
@@ -20,10 +20,10 @@
 			</aside>
 		{{/if}}
 		<main>
-		<p>This is a secure page. Users need to have a valid account and be logged in to see it.</p>
 		<p><a href="/">Home page</a></p>
+		<p> Below is a list of all business expenses made, including the price, title, description and date: </p>
 	<table>
-		<tr><th>Title</th> <th>Price (£)</th> <th> Description </th> <th>Date Of Expense</th></tr>		
+		<tr><th>Title:</th> <th>Price(£):</th> <th> Description: </th> <th>Date Of Expense:</th></tr>		
 		{{#each records}}
 		<tr>			
 			<td> {{this.title}} </td>		
@@ -35,4 +35,7 @@
 	</table>						
 		</main>
 	</body>
+	<footer>
+		<p><a href="/">Home page</a></p>
+	</footer>
 </html>

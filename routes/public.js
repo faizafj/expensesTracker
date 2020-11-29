@@ -14,12 +14,15 @@ const dbName = 'website.db'
  */
 router.get('/', async ctx => {
 	try {
-		await ctx.render('index', ctx.hbs)
-	} catch(err) {
+		if (ctx.hbs.authorised) {
+			return ctx.redirect('/secure?msg=You have logged in.')
+		} else {
+			return ctx.redirect('/login?msg=You need to log in.')
+		}
+	} catch (err) {
 		await ctx.render('error', ctx.hbs)
 	}
 })
-
 
 /**
  * The user registration page.
