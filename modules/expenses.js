@@ -40,11 +40,10 @@ class Expenses {
 		const sql = 'SELECT users.user, expenses.* FROM expenses, users\ WHERE expenses.userid = users.id;'
 		const expenses = await this.db.all(sql)
 		for (const index in expenses) {
-            if (expenses[index].receiptImage === null) expenses[index].receiptImage = 'avatar.png'
+			if (expenses[index].receiptImage === null) expenses[index].receiptImage = 'avatar.png'
 			const dateTime = new Date(expenses[index].dateOfExpense)
 			const date = `${dateTime.getDate()}/${dateTime.getMonth()+1}/${dateTime.getFullYear()}`
 			expenses[index].dateOfExpense = date
-            
 		}
 		return expenses
 	}
