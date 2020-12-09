@@ -23,13 +23,14 @@
 		<p><a href="/">Home page</a></p>
 		<p> Below is a list of all business expenses made, including the price, title, description and date: </p>
 	<table>
-		<tr><th>Title:</th> <th>Price(£):</th> <th> Description: </th> <th>Date Of Expense:</th></tr>		
+		<tr><th>Title:</th> <th>Price(£):</th> <th> Description: </th> <th>Date Of Expense:</th> <th>Receipt Image:</th></tr>		
 		{{#each records}}
 		<tr>			
 			<td> {{this.title}} </td>		
 			<td> {{this.price}} </td>		
 			<td> {{this.description}} </td>
 			<td> {{this.dateOfExpense}} </td>
+            <td> {{this.receiptImage}} </td>
 		</tr>
 		{{/each}}
 	</table>						
