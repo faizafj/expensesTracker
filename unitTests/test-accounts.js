@@ -21,9 +21,9 @@ test('REGISTER : register a duplicate username', async test => {
 	const account = await new Accounts()
 	try {
 		await account.register('user1', 'p455w0rd', 'user1@gmail.com')
-        await account.register('user2', 'p455w0rd', 'user2@gmail.com')
+		await account.register('user2', 'p455w0rd', 'user2@gmail.com')
 		await account.register('manager1', 'p455w0rd', 'manager1@gmail.com')
-        await account.register('manager2', 'p455w0rd', 'manager2@gmail.com')
+		await account.register('manager2', 'p455w0rd', 'manager2@gmail.com')
 		test.fail('error not thrown')
 	} catch(err) {
 		test.is(err.message, 'Username is already in use', 'incorrect error message')

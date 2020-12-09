@@ -43,34 +43,35 @@ if [ "$branch" = "master" ]; then
 	exit 1 # commit will not execute
 fi
 
-# is the current branch a direct child of the master branch?
-# echo "checking parent branch"
-# PARENT=$(git show-branch -a | grep -v `git rev-parse --abbrev-ref HEAD` | grep -v origin | sed 's/.*\[\(.*\)\].*/\1/' | grep -v -e '^$' | grep -v "^----$"
-# echo "parent branch is $PARENT")
+#is the current branch a direct child of the master branch?
+ echo "checking parent branch"
+ PARENT=$(git show-branch -a | grep -v `git rev-parse --abbrev-ref HEAD` | grep -v origin | sed 's/.*\[\(.*\)\].*/\1/' | grep -v -e '^$' | grep -v "^----$"
+ echo "parent branch is $PARENT")
 
 # see if the user is trying to commit to the master branch
-# echo "  you are trying to commit to the '$branch' branch"
-# if [ "$branch" = "master" ]; then
-#   echo "    you can't commit directly to the master branch"
-#   echo "    create a local feature branch first"
-#   echo
-#   exit 1
-# fi
+ echo "  you are trying to commit to the '$branch' branch"
+ if [ "$branch" = "master" ]; then
+   echo "    you can't commit directly to the master branch"
+   echo "    create a local feature branch first"
+   echo
+   exit 1
+ fi
 
 # check for valid branch name:
 
 # valid_branch_regex="^iss\d{3}\/[a-z\-]+$"
 
-# if [[ ! $local_branch =~ $valid_branch_regex ]]
-# then
-#     echo "invalid branch name"
-#     echo "  format is: 'iss000/issue-name'"
-#     echo "  replacing '000' with the issue number and 'issue-name' with the issue name"
-#     echo "  only lower-case letters and replace spaces in the issue name with dashes"
-#     echo "  rename your branch and try again"
-#     exit 1
-# fi
+ #if [[ ! $local_branch =~ $valid_branch_regex ]]
+ #then
+  #   echo "invalid branch name"
+  #   echo "  format is: 'iss000/issue-name'"
+  #   echo "  replacing '000' with the issue number and 'issue-name' with the issue name"
+  #   echo "  only lower-case letters and replace spaces in the issue name with dashes"
+   #  echo "  rename your branch and try again"
+   #  exit 1
+ #fi
 
+#run linter
 ./node_modules/.bin/eslint .
 
 echo "  commit successful..."
