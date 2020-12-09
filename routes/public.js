@@ -7,7 +7,7 @@ import Accounts from '../modules/accounts.js'
 const dbName = 'website.db'
 
 /**
- * The secure home page.
+ * The Expenses home page.
  *
  * @name Home Page
  * @route {GET} /
@@ -15,7 +15,7 @@ const dbName = 'website.db'
 router.get('/', async ctx => {
 	try {
 		if (ctx.hbs.authorised) {
-			return ctx.redirect('/secure?msg=You have logged in.')
+			return ctx.redirect('/expenses?msg=You have logged in.')
 		} else {
 			return ctx.redirect('/login?msg=You need to log in.')
 		}
@@ -67,7 +67,7 @@ router.post('/login', async ctx => {
 		const body = ctx.request.body
 		await account.login(body.user, body.pass)
 		ctx.session.authorised = true
-		const referrer = body.referrer || '/secure'
+		const referrer = body.referrer || '/expenses'
 		return ctx.redirect(`${referrer}?msg=you are now logged in...`)
 	} catch(err) {
 		console.log(err)
