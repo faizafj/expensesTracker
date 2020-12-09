@@ -3,8 +3,8 @@
 <html lang="en">
 	<head>
 		<meta charset="utf-8">
-		<title>Add Expenses </title>
-		<meta name="description" content="Add Business Expenses ">
+		<title>Adding Expenses Page</title>
+		<meta name="description" content="Page to add expenses information ">
 		<meta name="author" content="Faiza Javed">
 		<link href="{{host}}/style.css" type="text/css" rel="stylesheet" />
 		<script type="module" src="{{host}}/main.js"></script>
@@ -15,17 +15,14 @@
 		<a href="/logout">Log out</a>
 		</header>
 		{{#if msg}}
- 			<center>
+ 			<aside>
 				<p class="msg">{{msg}}</p>
-			</center>
+			</aside>
 		{{/if}}
 		<main>
-            <form method = "post" action="expenses/add" enctype="multipart/form-data">
-                <p> <label for="username"></label>
-                </p>
-            </form>
+					
 		</main>
-       
+
 	</body>
 	<footer>
 		<p><a href="/">Home page</a></p>
