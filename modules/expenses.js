@@ -1,8 +1,8 @@
 /** @module Expenses */
 
 import sqlite from 'sqlite-async'
-
-
+import mime from 'mime-types'
+import fs from 'fs-extra'
 /**
  * Expenses
  * ES6 module that manages the Expenses input by the user.
@@ -38,11 +38,12 @@ class Expenses {
 	 * This also sorts the Date field so that it is organised as DD/MM/YYYY
 */
 	async all() {
+		const thousand = 1000
 		const sql = 'SELECT users.user, expenses.* FROM expenses, users\ WHERE expenses.userid = users.id;'
 		const expenses = await this.db.all(sql)
 		for (const index in expenses) {
 			if (expenses[index].receiptImage === null) expenses[index].receiptImage = 'avatar.png'
-			const dateTime = new Date(expenses[index].dateOfExpense)
+			const dateTime = new Date(expenses[index].dateOfExpense * thousand)
 			const date = `${dateTime.getDate()}/${dateTime.getMonth()+1}/${dateTime.getFullYear()}`
 			expenses[index].dateOfExpense = date
 		}
@@ -50,11 +51,20 @@ class Expenses {
 	}
 	async add(data) {
 		console.log(data)
+		let filename
+		const thousand = 1000
+		if (data.fileName) {
+			filename = `${Date.now()}.${mime.extension(data.fileType)}`
+			console.log(filename)
+			await fs.copy(data.filePath, `public/avatars/${filename}`)
+		}
+		const timestamp = Math.floor(Date.now() / thousand)
 		try {
-			const sql = `INSERT INTO expenses(userid, title, price, description, category, dateOfExpense, receiptImage)\
-						VALUES(${data.account}, "${data.title}", "${data.price}",\
-						"${data.description}", ${data.category}", ${data.dateOfExpense}", "${data.filename}")`
+			const sql = `INSERT INTO expenses(userid, title, price, category, description, dateOfExpense, receiptImage)\
+						VALUES(${data.account}, "${data.title}", "${data.price}","${data.category}",\
+						"${data.description}", ${timestamp}, "${filename}");`
 			console.log(sql)
+			await this.db.run(sql)
 			return true
 		} catch (err) {
 			console.log(err)
@@ -65,4 +75,5 @@ class Expenses {
 		await this.db.close()
 	}
 }
+
 export default Expenses
