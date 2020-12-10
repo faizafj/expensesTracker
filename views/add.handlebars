@@ -20,7 +20,34 @@
 			</aside>
 		{{/if}}
 		<main>
-					
+            <p> All fields marked with an asterix (*) are mandatory to fill in.</p>
+		<form method="post" action="expenses/add" enctype="multipart/form-data">
+            <p> 
+                <label for="userid">User ID*</label><br/>
+                <input type="text" name="userid" placeholder="User ID" value="" autofocus required />
+            </p>
+            <p> 
+                <label for="title">Label*</label><br/>
+                <input type="text" name="title" placeholder="Title Of Expense" value="" required />
+            </p>         
+            <p> 
+                <label for="price">Price of Expense*</label><br/>
+                <input type="text" name="price" placeholder="Price of the Expense" value="" required/>
+            </p> 
+            <p>
+                <label for="category">Category*</label><br/>
+                <input type="text" name="category" placeholder="Category" value="" required/>
+            </p>  
+             <p>
+                <label for="description">Description*</label><br/>
+                <input type="text" name="description" placeholder="Description of Expense" value="" required/>
+            </p>  
+            <p>
+                <label for="reciept">Image of Reciept*</label><br/>
+                <input type="file" name="avatar" accept="image/*" required />
+            </p>  
+                                   
+            </form>
 		</main>
 
 	</body>
