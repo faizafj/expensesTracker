@@ -29,7 +29,26 @@ router.get('/', async ctx => {
 })
 
 router.get('/add', async ctx => {
-    await ctx.render('add', ctx.hbs)
+	await ctx.render('add', ctx.hbs)
+})
+
+router.post('/add', async ctx => {
+	const expenses = await new Expenses(dbName)
+	try {
+		ctx.request.body.account = ctx.session.userid
+		if (ctx.request.files.avatar.name) {
+			ctx.request.body.filePath = ctx.request.files.avatar.path
+			ctx.request.body.fileName = ctx.request.files.avatar.name
+			ctx.request.body.fileType = ctx.request.files.avatar.type
+		}
+		await expenses.add(ctx.request.body)
+		return ctx.redirect('/expenses?msg=New Expense Added')
+	} catch (err) {
+		console.log(err)
+		await ctx.render('error', ctx.hbs)
+	} finally {
+		expenses.close()
+	}
 })
 
 

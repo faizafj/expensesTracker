@@ -24,6 +24,7 @@ class Expenses {
 	category TEXT NOT NULL,\
 	description TEXT NOT NULL,\
 	dateOfExpense TEXT DEFAULT CURRENT_TIMESTAMP,\
+    receiptImage TEXT,\
 	FOREIGN KEY (userid) REFERENCES user(id)\
 	);'
 			await this.db.run(sql)
@@ -46,6 +47,22 @@ class Expenses {
 			expenses[index].dateOfExpense = date
 		}
 		return expenses
+	}
+	async add(data) {
+		console.log(data)
+		try {
+			const sql = `INSERT INTO expenses(userid, title, price, description, category, dateOfExpense, receiptImage)\
+						VALUES(${data.account}, "${data.title}", "${data.price}",\
+						"${data.description}", ${data.category}", ${data.dateOfExpense}", "${data.filename}")`
+			console.log(sql)
+			return true
+		} catch (err) {
+			console.log(err)
+			throw err
+		}
+	}
+	async close() {
+		await this.db.close()
 	}
 }
 export default Expenses
