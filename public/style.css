@@ -8,23 +8,24 @@ body {
 aside {
 	max-width: 500px;
 	margin: auto;
-	background-color: yellow;
+	background-color: white;
 }
 .msg {
-	border: 1px solid red;
+	border: 1px solid black;
 	font-weight: bold;
 	background-color: white;
 	color: red;
 	padding: 1em;
 	margin: 2em;
-	position: fixed;
+	position: center;
 	top: 2em;
+    text-align: center;
 }
 
 header {
-	background-color: #ccc;
-	border-bottom: 5px solid grey;
-	height: 8vw;
+	background-color: #FFFFFF;
+	border-bottom: 2px solid black;
+	height: 70px;
 }
 
 h1, h2, h3 {
@@ -35,9 +36,10 @@ h1, h2, h3 {
 
 h1 {
 	padding: 2.6vw;
-	float: left;
+	float: center;
 	font-size: 3vw;
-	margin-left: 6vw;
+    text-align: center;
+    color: black;
 }
 
 h2 {
@@ -159,8 +161,8 @@ input:focus {
 } */
 
 input[type="submit"], .button, header > a, body > a, .custom-file-upload {
-  background-color: grey;
-  border: 2px solid grey;
+  background-color: #009999;
+  border: 2px solid #009999;
   color: white;
 	padding: 0.4vw 0.8vw;
   text-align: center;
@@ -171,7 +173,7 @@ input[type="submit"], .button, header > a, body > a, .custom-file-upload {
 }
 
 input[type="submit"]:hover, header > a:hover, .custom-file-upload:hover, .add:hover {
-  color: grey;
+  color:#009999 ;
   background-color: white;
 }
 
@@ -197,7 +199,7 @@ input:invalid, textarea:invalid {
 	border-color: red;
 }
 input:valid, textarea:valid {
-	border-color: darkgreen;
+	border-color: #009999;
 }
 
 
@@ -257,8 +259,10 @@ tr:nth-child(odd) {
 th {
 	/* border: 1px solid grey; */
 	padding: 0.5vw;
-	font-size: 20px;
+	font-size: 16px;
 	text-align: center;
+    color: #009999;
+    text-decoration: underline;
 	border: black solid 0.5px ; 
 }
 
@@ -310,7 +314,17 @@ button#add:hover {
 	color: grey;
 }
 
+footer {
+	text-align: center;
+    border-top: 5px solid black;
+}
+
 footer p {
 	text-align: center;
-	
+    font-size: 12px;
+}
+
+footer a:hover{
+	text-align: center;
+    color: #009999;
 }
