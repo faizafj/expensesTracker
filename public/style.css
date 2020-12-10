@@ -8,23 +8,27 @@ body {
 aside {
 	max-width: 500px;
 	margin: auto;
-	background-color: yellow;
+	background-color:#f2f2f2;
 }
 .msg {
-	border: 1px solid red;
+	border: 5px solid #009999;
 	font-weight: bold;
 	background-color: white;
-	color: red;
+	color: black;
 	padding: 1em;
 	margin: 2em;
-	position: fixed;
+	position: center;
 	top: 2em;
+    text-align: center;
+    border-radius: 5px;
 }
 
+/* Header, Title */
+
 header {
-	background-color: #ccc;
-	border-bottom: 5px solid grey;
-	height: 8vw;
+	background-color:#f2f2f2;
+	height: 10%;
+    padding: 15px;
 }
 
 h1, h2, h3 {
@@ -34,10 +38,13 @@ h1, h2, h3 {
 }
 
 h1 {
-	padding: 2.6vw;
-	float: left;
+	padding: 10px;
+    margin:10px;
+	float: center;
 	font-size: 3vw;
-	margin-left: 6vw;
+    text-align: center;
+    color: black;
+    border-bottom: 2px solid black;
 }
 
 h2 {
@@ -53,10 +60,11 @@ h3 {
 }
 
 header > a {
-	margin-top: 3vw;
-	margin-right: 3vw;
+	margin-top: 20px;
+	margin-right: 20px;
 	float: right;
 	font-size: 1.3vw;
+    border-radius: 5px;
 }
 
 header > img {
@@ -67,8 +75,49 @@ header > img {
 	top: 0.5vw;
 }
 
+
 p, legend {
 	font-size: 1.5vw;
+}
+
+/* Main Menu */
+ul {
+  list-style-type: none;
+  overflow: hidden;
+  width: 95%;
+  border-radius: 5px;
+  border: black solid 1px;
+  margin-bottom: 10px;
+}
+
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+    padding: 20px 15px;
+     border-radius: 5px;
+}
+
+li a:hover {
+  background-color: white;
+  color: #009999;
+  
+}
+
+.menu {
+  background-color: #009999;
+  border-bottom: 2px solid black;
+}
+
+/* Main and Body */
+
+body {
+	background-color:#f2f2f2;
 }
 
 main {
@@ -77,8 +126,11 @@ main {
 	margin-top: 2em;
 	padding: 2em;
 	box-sizing: border-box;
-	background-color: white;
+	background-color:#f2f2f2;
 }
+
+main p{
+    font-size: 20px;}
 
 article {
 	width: 50vw;
@@ -90,16 +142,6 @@ aside {
 	/* background-color: yellow;
 	float: right; */
 	width: 50vw;
-}
-
-main a {
-	color: black;
-	text-decoration: underline;
-}
-
-main a:hover {
-	color: red;
-	text-decoration: none;
 }
 
 section {
@@ -120,6 +162,7 @@ section > h3 {
 	margin: 0;
 	padding: 0;
 	font-size: 1.8vw;
+    
 }
 
 small {
@@ -154,24 +197,21 @@ input:focus {
 	outline:none;
 }
 
-/* input[type="file"] {
-	display: none;
-} */
 
 input[type="submit"], .button, header > a, body > a, .custom-file-upload {
-  background-color: grey;
-  border: 2px solid grey;
+  background-color: #009999;
+  border: 2px solid black;
   color: white;
-	padding: 0.4vw 0.8vw;
+	padding: 10px 15px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
 	font-size: 1.5vw;
-	/* border-radius: 0.6vw; */
+   border-radius: 5px;
 }
 
 input[type="submit"]:hover, header > a:hover, .custom-file-upload:hover, .add:hover {
-  color: grey;
+  color:#009999 ;
   background-color: white;
 }
 
@@ -179,13 +219,13 @@ input[type="text"], input[type="email"], input[type="password"], input[type="tel
 	font-size: 1.5vw;
 	width: 25vw;
 	border: 1px solid #CCC;
-	padding: 0.5vw;
+	padding: 10px;
 	/* margin-bottom: 1vw; */
-	/* border-radius: 0.6vw; */
+
 }
 
 textarea {
-	height: 10vw;
+	height: 10px;
 	resize: none;
 }
 
@@ -194,10 +234,10 @@ input:required, textarea:required {
 }
 
 input:invalid, textarea:invalid {
-	border-color: red;
+	border-color: red ;
 }
 input:valid, textarea:valid {
-	border-color: darkgreen;
+	border-color: #009999;
 }
 
 
@@ -251,20 +291,23 @@ table img {
 }
 
 tr:nth-child(odd) {
-	background: white;
+	background-color:white;
+}
+tr:nth-child(even) {
+	background-color:white;
 }
 
 th {
-	/* border: 1px solid grey; */
 	padding: 0.5vw;
-	font-size: 20px;
+	font-size: 16px;
 	text-align: center;
+    color: #009999;
+    text-decoration: underline;
 	border: black solid 0.5px ; 
 }
 
 
 td {
-	/* border: 1px solid grey; */
 	padding: 0.5vw;
 	font-size: 16px;
 	text-align: left;
@@ -289,9 +332,7 @@ button#add {
 	background-color: grey;
 	color: white;
 	font-size: 5em;
-	width: 1.2em;
 	block-size: border-box;
-	border-radius: 2em;
 	border: none;
 	cursor: pointer;
 }
@@ -310,7 +351,20 @@ button#add:hover {
 	color: grey;
 }
 
+
+/* footer */
+footer {
+	text-align: center;
+    border-top: 5px solid black;
+	background-color:#f2f2f2;
+}
+
 footer p {
 	text-align: center;
-	
+    font-size: 12px;
+}
+
+footer a:hover{
+	text-align: center;
+    color: #009999;
 }

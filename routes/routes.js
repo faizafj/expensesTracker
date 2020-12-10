@@ -3,12 +3,12 @@ import Router from 'koa-router'
 import bodyParser from 'koa-body'
 
 import publicRouter from './public.js'
-import secureRouter from'./secure.js'
+import expensesRouter from'./expenses.js'
 
 const mainRouter = new Router()
 mainRouter.use(bodyParser({multipart: true}))
 
-const nestedRoutes = [publicRouter, secureRouter]
+const nestedRoutes = [publicRouter, expensesRouter]
 for (const router of nestedRoutes) {
 	mainRouter.use(router.routes())
 	mainRouter.use(router.allowedMethods())
