@@ -51,12 +51,15 @@ h2 {
 	font-size: 2.5vw;
 	margin: 1vw;
 	margin-left: 0.6vw;
+    color: black;
+    text-decoration: underline;
 }
 
 h3 {
 	font-size: 2vw;
 	margin: 1vw;
 	margin-left: 0.6vw;
+    color: black;
 }
 
 header > a {
@@ -126,7 +129,7 @@ main {
 	margin-top: 2em;
 	padding: 2em;
 	box-sizing: border-box;
-	background-color:#f2f2f2;
+	background-color:white;
 }
 
 main p{
@@ -193,14 +196,16 @@ input, textarea {
 	box-sizing: border-box;
 }
 
+
 input:focus {
 	outline:none;
+    
 }
 
 
 input[type="submit"], .button, header > a, body > a, .custom-file-upload {
   background-color: #009999;
-  border: 2px solid black;
+  border: 3px solid #009999;
   color: white;
 	padding: 10px 15px;
   text-align: center;
@@ -211,19 +216,34 @@ input[type="submit"], .button, header > a, body > a, .custom-file-upload {
 }
 
 input[type="submit"]:hover, header > a:hover, .custom-file-upload:hover, .add:hover {
-  color:#009999 ;
   background-color: white;
-}
-
-input[type="text"], input[type="email"], input[type="password"], input[type="tel"], textarea, select {
+  border: 3px solid #009999;
+  color: #009999;
+    padding: 10px 15px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
 	font-size: 1.5vw;
-	width: 25vw;
-	border: 1px solid #CCC;
+   border-radius: 5px;
+  
+  
+}
+
+input[type="text"], input[type="email"], input[type="password"], input[type="tel"], textarea {
+	font-size: 16px;
+	width: 26vw;
+	border: 1px solid black;
 	padding: 10px;
-	/* margin-bottom: 1vw; */
 
 }
 
+input[type="number"], select {
+	font-size: 16px;
+	width: 26vw;
+	border: 1px solid black;
+	padding: 10px;
+
+}
 textarea {
 	height: 10px;
 	resize: none;
@@ -289,6 +309,9 @@ table {
 table img {
 	width: 100px;
 }
+table img:hover {
+  -webkit-transform: scale(2,2);
+}
 
 tr:nth-child(odd) {
 	background-color:white;
@@ -299,7 +322,7 @@ tr:nth-child(even) {
 
 th {
 	padding: 0.5vw;
-	font-size: 16px;
+	font-size: 14px;
 	text-align: center;
     color: #009999;
     text-decoration: underline;
@@ -309,11 +332,21 @@ th {
 
 td {
 	padding: 0.5vw;
-	font-size: 16px;
+	font-size: 14px;
 	text-align: left;
 	border: black solid 0.5px ; 
 }
 
+td a {
+    color: black;
+    text-decoration: None;
+    text-align: center;
+}
+
+td a:hover {
+    color: #009999;
+    text-decoration: underline;
+}
 
 th:last-child {
 	text-align: center;
@@ -323,20 +356,6 @@ td:last-child {
 }
 /* ===== ADD BUTTON ===== */
 
-button#add {
-	display: block;
-	position: fixed;
-	bottom: 1em;
-	right: 1em;
-	z-index: 5;
-	background-color: grey;
-	color: white;
-	font-size: 5em;
-	block-size: border-box;
-	border: none;
-	cursor: pointer;
-}
-
 .add {
 	display: block;
 	position: fixed;
@@ -344,18 +363,25 @@ button#add {
 	right: 1em;
 	z-index: 5;
 	padding: 1em;
+    padding: 10px 15px;
 }
 
-button#add:hover {
-	background-color: white;
-	color: grey;
+
+
+/* receipt images */
+img {
+  width: 50%;
+  height: auto;
+  border: solid 1px black;
 }
+
+
 
 
 /* footer */
 footer {
 	text-align: center;
-    border-top: 5px solid black;
+    border-top: 3px solid black;
 	background-color:#f2f2f2;
 }
 
@@ -367,4 +393,28 @@ footer p {
 footer a:hover{
 	text-align: center;
     color: #009999;
+}
+
+
+button {
+  background-color: #009999;
+  border: 2px solid #009999;
+  color: white;
+	padding: 10px 30px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+	font-size: 1.5vw;
+   border-radius: 5px;
+}
+button:hover {
+	background-color: white;
+	color: #009999;
+}
+
+p.receiptDescription{
+    padding: 30px; 
+    border: 2px black solid; 
+    color: black;
+    font-size: 15px;
 }

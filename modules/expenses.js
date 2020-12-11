@@ -17,10 +17,11 @@ class Expenses {
 			this.db = await sqlite.open(dbName)
 			// we need this table to store the user accounts
 			const sql = 'CREATE TABLE IF NOT EXISTS expenses (\
-	referenceNumber INTEGER PRIMARY KEY AUTOINCREMENT,\
+	id INTEGER PRIMARY KEY AUTOINCREMENT,\
 	userid INTEGER,\
 	title TEXT NOT NULL,\
 	price INTEGER NOT NULL,\
+	quantity INTEGER NOT NULL, \
 	category TEXT NOT NULL,\
 	description TEXT NOT NULL,\
 	dateOfExpense TEXT DEFAULT CURRENT_TIMESTAMP,\
@@ -49,10 +50,27 @@ class Expenses {
 		}
 		return expenses
 	}
+	async getByID(id) {
+		const thousand = 1000
+		try {
+			const sql = `SELECT users.user, expenses.*FROM expenses, users\
+						WHERE expenses.userid = users.id AND expenses.id = ${id};`
+			console.log(sql)
+			const expenses = await this.db.get(sql)
+			if(expenses.receiptImage === null) expenses.receiptImage = 'avatar.png'
+			const dateTime = new Date(expenses.dateOfExpense * thousand)
+			const date = `${dateTime.getDate()}/${dateTime.getMonth()+1}/${dateTime.getFullYear()}`
+			expenses.dateOfExpense = date
+			return expenses
+		} catch (err) {
+			console.log(err)
+			throw err
+		}
+	}
 	async add(data) {
+		const thousand = 1000
 		console.log(data)
 		let filename
-		const thousand = 1000
 		if (data.fileName) {
 			filename = `${Date.now()}.${mime.extension(data.fileType)}`
 			console.log(filename)
@@ -60,8 +78,8 @@ class Expenses {
 		}
 		const timestamp = Math.floor(Date.now() / thousand)
 		try {
-			const sql = `INSERT INTO expenses(userid, title, price, category, description, dateOfExpense, receiptImage)\
-						VALUES(${data.account}, "${data.title}", "${data.price}","${data.category}",\
+			const sql = `INSERT INTO expenses(userid, title, price, quantity, category, description, dateOfExpense, receiptImage)\
+						VALUES(${data.account}, "${data.title}", "${data.price}", "${data.quantity}","${data.category}",\
 						"${data.description}", ${timestamp}, "${filename}");`
 			console.log(sql)
 			await this.db.run(sql)
