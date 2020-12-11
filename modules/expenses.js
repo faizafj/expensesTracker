@@ -38,12 +38,11 @@ class Expenses {
 	 * This also sorts the Date field so that it is organised as DD/MM/YYYY
 */
 	async all() {
-		const thousand = 1000
 		const sql = 'SELECT users.user, expenses.* FROM expenses, users\ WHERE expenses.userid = users.id;'
 		const expenses = await this.db.all(sql)
 		for (const index in expenses) {
 			if (expenses[index].receiptImage === null) expenses[index].receiptImage = 'avatar.png'
-			const dateTime = new Date(expenses[index].dateOfExpense*thousand)
+			const dateTime = new Date(expenses[index].dateOfExpense * 1000)
 			const date = `${dateTime.getDate()}/${dateTime.getMonth()+1}/${dateTime.getFullYear()}`
 			expenses[index].dateOfExpense = date
 		}
@@ -53,11 +52,10 @@ class Expenses {
 		try {
 			const sql = `SELECT users.user, expenses.*FROM expenses, users\
 						WHERE expenses.userid = users.id AND expenses.id = ${id};`
-			const thousand = 1000
 			console.log(sql)
 			const expenses = await this.db.get(sql)
 			if(expenses.receiptImage === null) expenses.receiptImage = 'avatar.png'
-			const dateTime = new Date(expenses.dateOfExpense * thousand)
+			const dateTime = new Date(expenses.dateOfExpense * 1000)
 			const date = `${dateTime.getDate()}/${dateTime.getMonth()+1}/${dateTime.getFullYear()}`
 			expenses.dateOfExpense = date
 			return expenses
@@ -68,14 +66,13 @@ class Expenses {
 	}
 	async add(data) {
 		console.log(data)
-		const thousand = 1000
 		let filename
 		if (data.fileName) {
 			filename = `${Date.now()}.${mime.extension(data.fileType)}`
 			console.log(filename)
 			await fs.copy(data.filePath, `public/avatars/${filename}`)
 		}
-		const timestamp = Math.floor(Date.now()/thousand)
+		const timestamp = Math.floor(Date.now() / 1000)
 		try {
 			const sql = `INSERT INTO expenses(userid, title, price, category, description, dateOfExpense, receiptImage)\
 						VALUES(${data.account}, "${data.title}", "${data.price}","${data.category}",\
