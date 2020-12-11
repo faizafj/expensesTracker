@@ -13,10 +13,10 @@
 		<header>
 		<h1>Business Expense Records</h1>
                 <center> <ul class="menu">
-              <li><a  href="/">Homepage</a></li>
+              <li><a  href="/">Expenses</a></li>
               <li><a href="/expenses/add">Add New Expense</a></li>
+              <li>  <a href="/logout">Log out</a> </li>      
             </ul> </center>
-		<a href="/logout">Log out</a>
 		</header>
 		{{#if msg}}
  			<aside>
@@ -27,7 +27,7 @@
 		<p> Below is a list of all business expenses made, including the price, title, description and date: </p>
     <center>
 	<table>
-		<tr><th>Title:</th> <th>Price(£):</th> <th> Description: </th> <th> Category: </th> <th>Date Of Expense:</th> <th>Receipt Image:</th></tr>		
+		<tr><th>Title:</th> <th>Price(£):</th> <th> Description: </th> <th> Category: </th> <th>Date Of Expense:</th> <th>Receipt Image:</th> <th>Actions</th></tr>		
 		{{#each records}}
 		<tr>			
 			<td> {{this.title}} </td>		
@@ -36,6 +36,7 @@
             <td> {{this.category}} </td>
 			<td> {{this.dateOfExpense}} </td>
             <td> <img src= "avatars/{{this.receiptImage}}" /> </td>
+            <td> <a href="/expenses/details/{{this.id}}">details</a></td>
 		</tr>
 		{{/each}}
 	</table>		</center>				

@@ -200,7 +200,7 @@ input:focus {
 
 input[type="submit"], .button, header > a, body > a, .custom-file-upload {
   background-color: #009999;
-  border: 2px solid black;
+  border: 3px solid black;
   color: white;
 	padding: 10px 15px;
   text-align: center;
@@ -218,7 +218,7 @@ input[type="submit"]:hover, header > a:hover, .custom-file-upload:hover, .add:ho
 input[type="text"], input[type="email"], input[type="password"], input[type="tel"], textarea, select {
 	font-size: 1.5vw;
 	width: 25vw;
-	border: 1px solid #CCC;
+	border: 1px solid black;
 	padding: 10px;
 	/* margin-bottom: 1vw; */
 
@@ -351,6 +351,9 @@ button#add:hover {
 	color: grey;
 }
 
+img {
+  width: 50%;
+  height: auto;}
 
 /* footer */
 footer {
@@ -367,4 +370,21 @@ footer p {
 footer a:hover{
 	text-align: center;
     color: #009999;
+}
+
+
+button {
+  background-color: #009999;
+  border: 2px solid black;
+  color: white;
+	padding: 10px 30px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+	font-size: 1.5vw;
+   border-radius: 5px;
+}
+button:hover {
+	background-color: white;
+	color: #009999;
 }

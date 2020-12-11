@@ -27,6 +27,19 @@ router.get('/', async ctx => {
 		await ctx.render('error', ctx.hbs)
 	}
 })
+router.get('/details/:id', async ctx => {
+	const expenses = await new Expenses(dbName)
+	try {
+		console.log(`record: ${ctx.params.id}`)
+		ctx.hbs.expense = await expenses.getByID(ctx.params.id)
+		console.log(ctx.hbs)
+		ctx.hbs.id = ctx.params.id
+		await ctx.render('details', ctx.hbs)
+	}	catch(err) {
+		console.log(err)
+		await ctx.render('error', ctx.hbs)
+	}
+})
 
 router.get('/add', async ctx => {
 	await ctx.render('add', ctx.hbs)

@@ -1,0 +1,44 @@
+<!doctype html>
+
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>Detail</title>
+		<meta name="description" content="Page to view Individual Records ">
+		<meta name="author" content="Faiza Javed">
+		<link href="{{host}}/style.css" type="text/css" rel="stylesheet" />
+		<script type="module" src="{{host}}/main.js"></script>
+	</head>
+	<body>
+		<header>
+		<h1>Business Expense Records</h1>
+                <center> <ul class="menu">
+              <li><a  href="/">Expenses</a></li>
+              <li><a href="/expenses/add">Add New Expense</a></li>
+              <li>  <a href="/logout">Log out</a> </li>      
+            </ul> </center>            
+		</header>
+		{{#if msg}}
+ 			<aside>
+				<p class="msg">{{msg}}</p>
+			</aside>
+		{{/if}}
+		<main>  
+            <center><h2>User {{expense.userid}} Item: {{expense.title}}</h2> </center>
+            <p>Purchased by: User {{expense.userid}}</p>
+            <p>{{expense.title}}</p>
+            <p>Price: £{{expense.price}}</p>
+            <p> Description: {{expense.description}}</p>
+            <center> <figure>
+           <img src="{{host}}/avatars/{{expense.receiptImage}}" />
+                <figcaption> {{expense.title}}</figcaption>
+            </figure></center>
+		</main>
+           <center class="fixed top left">
+            <button class="back">Back</button>
+           </center>
+        </body>
+	<footer>
+       <p><a href="/">Home page</a></p>
+	</footer>
+</html>

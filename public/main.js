@@ -9,6 +9,15 @@ window.addEventListener('DOMContentLoaded', () => {
 			document.querySelector('aside').hidden = true
 		}, delay)
 	}
+	if(document.querySelector('button.back')) {
+		document.querySelectorAll('button.back').forEach(element => {
+			element.addEventListener('click',() => {
+				console.log('back button clicked')
+				console.log(window.history)
+				window.history.back()
+			})
+		})
+	}
 	if(document.querySelector('input')) {
 		document.querySelectorAll('input').forEach(element => {
 			element.addEventListener('invalid', event => {

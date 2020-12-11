@@ -12,11 +12,11 @@
 	<body>
 		<header>
 		<h1>Add Expenses</h1>
-                        <center> <ul class="menu">
-              <li><a  href="/">Homepage</a></li>
+                <center> <ul class="menu">
+              <li><a  href="/">Expenses</a></li>
               <li><a href="/expenses/add">Add New Expense</a></li>
+              <li>  <a href="/logout">Log out</a> </li>      
             </ul> </center>
-		<a href="/logout">Log out</a>
 		</header>
 		{{#if msg}}
  			<aside>
@@ -46,8 +46,9 @@
                 <label for="filename">Image of Reciept*</label><br/>
                 <input type="file" name="avatar" accept="image/*" required />
             </p>                   
-           <p> <input type="submit" value="Add Expense"></p>
+           <p> <input type="submit" value="Add Expense"> <button class="back">Back</button></p>
          </form>
+            
 		</main>
 
 	</body>
