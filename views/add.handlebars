@@ -12,11 +12,12 @@
 	<body>
 		<header>
 		<h1>Add Expenses</h1>
+            <nav>
                 <center> <ul class="menu">
               <li><a  href="/">Expenses</a></li>
               <li><a href="/expenses/add">Add New Expense</a></li>
               <li>  <a href="/logout">Log out</a> </li>      
-            </ul> </center>
+            </ul> </center> </nav>
 		</header>
 		{{#if msg}}
  			<aside>
@@ -31,12 +32,17 @@
                 <input type="text" name="title" placeholder="Title Of Expense" value="" required />
             </p>         
             <p> 
-                <label for="price">Price of Expense*</label><br/>
-                <input type="text" name="price" placeholder="Price of the Expense" value="" required/>
+                <label for="price">Price of Expense £*</label><br/>
+                <input type="number" name="price" placeholder="Price of the Expense" value="" required/>
+            </p> 
+            <p> 
+                <label for="quantity">Quantity*</label><br/>
+                <input type="number" name="quantity" placeholder="Quantity Purchased" value="" required/>
             </p> 
             <p>
                 <label for="category">Category*</label><br/>
-                <select name="category">
+                <select name="category" value="" required>
+                    <option> -- Choose Option -- </option>
                     <option>Travel</option>
                     <option>Food & Drink </option>
                     <option>Accomodation</option>
@@ -45,7 +51,7 @@
             </p>  
              <p>
                 <label for="description">Description*</label><br/>
-                <input type="text" name="description" placeholder="Description" value="" required/>
+                <input type="text" name="description" placeholder="Description" value="" required />
             </p>  
             <p>
                 <label for="filename">Image of Reciept*</label><br/>

@@ -21,6 +21,7 @@ class Expenses {
 	userid INTEGER,\
 	title TEXT NOT NULL,\
 	price INTEGER NOT NULL,\
+	quantity INTEGER NOT NULL, \
 	category TEXT NOT NULL,\
 	description TEXT NOT NULL,\
 	dateOfExpense TEXT DEFAULT CURRENT_TIMESTAMP,\
@@ -77,8 +78,8 @@ class Expenses {
 		}
 		const timestamp = Math.floor(Date.now() / thousand)
 		try {
-			const sql = `INSERT INTO expenses(userid, title, price, category, description, dateOfExpense, receiptImage)\
-						VALUES(${data.account}, "${data.title}", "${data.price}","${data.category}",\
+			const sql = `INSERT INTO expenses(userid, title, price, quantity, category, description, dateOfExpense, receiptImage)\
+						VALUES(${data.account}, "${data.title}", "${data.price}", "${data.quantity}","${data.category}",\
 						"${data.description}", ${timestamp}, "${filename}");`
 			console.log(sql)
 			await this.db.run(sql)

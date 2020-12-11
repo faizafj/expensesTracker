@@ -12,11 +12,11 @@
 	<body>
 		<header>
 		<h1>Business Expense Records</h1>
-                <center> <ul class="menu">
+        <nav> <center> <ul class="menu">
               <li><a  href="/">Expenses</a></li>
               <li><a href="/expenses/add">Add New Expense</a></li>
               <li>  <a href="/logout">Log out</a> </li>      
-            </ul> </center>            
+            </ul> </center> </nav>          
 		</header>
 		{{#if msg}}
  			<aside>
@@ -34,6 +34,7 @@
             <p class = "receiptDescription">Purchased by: User {{expense.userid}} <br>
                 Title: {{expense.title}}, <br>
             Price: £{{expense.price}}, <br>
+            Quantity: {{expense.quantity}}, <br>    
             Description: {{expense.description}}, <br>
             Date of Purchase: {{expense.dateOfExpense}}. </p>
 		</main>

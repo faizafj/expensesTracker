@@ -196,14 +196,16 @@ input, textarea {
 	box-sizing: border-box;
 }
 
+
 input:focus {
 	outline:none;
+    
 }
 
 
 input[type="submit"], .button, header > a, body > a, .custom-file-upload {
   background-color: #009999;
-  border: 3px solid black;
+  border: 3px solid #009999;
   color: white;
 	padding: 10px 15px;
   text-align: center;
@@ -214,19 +216,34 @@ input[type="submit"], .button, header > a, body > a, .custom-file-upload {
 }
 
 input[type="submit"]:hover, header > a:hover, .custom-file-upload:hover, .add:hover {
-  color:#009999 ;
   background-color: white;
+  border: 3px solid #009999;
+  color: #009999;
+    padding: 10px 15px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+	font-size: 1.5vw;
+   border-radius: 5px;
+  
+  
 }
 
-input[type="text"], input[type="email"], input[type="password"], input[type="tel"], textarea, select {
-	font-size: 1.5vw;
-	width: 25vw;
+input[type="text"], input[type="email"], input[type="password"], input[type="tel"], textarea {
+	font-size: 16px;
+	width: 26vw;
 	border: 1px solid black;
 	padding: 10px;
-	/* margin-bottom: 1vw; */
 
 }
 
+input[type="number"], select {
+	font-size: 16px;
+	width: 26vw;
+	border: 1px solid black;
+	padding: 10px;
+
+}
 textarea {
 	height: 10px;
 	resize: none;
@@ -292,6 +309,9 @@ table {
 table img {
 	width: 100px;
 }
+table img:hover {
+  -webkit-transform: scale(2,2);
+}
 
 tr:nth-child(odd) {
 	background-color:white;
@@ -336,20 +356,6 @@ td:last-child {
 }
 /* ===== ADD BUTTON ===== */
 
-button#add {
-	display: block;
-	position: fixed;
-	bottom: 1em;
-	right: 1em;
-	z-index: 5;
-	background-color: grey;
-	color: white;
-	font-size: 5em;
-	block-size: border-box;
-	border: none;
-	cursor: pointer;
-}
-
 .add {
 	display: block;
 	position: fixed;
@@ -357,12 +363,11 @@ button#add {
 	right: 1em;
 	z-index: 5;
 	padding: 1em;
+    padding: 10px 15px;
 }
 
-button#add:hover {
-	background-color: white;
-	color: grey;
-}
+
+
 /* receipt images */
 img {
   width: 50%;
@@ -370,10 +375,13 @@ img {
   border: solid 1px black;
 }
 
+
+
+
 /* footer */
 footer {
 	text-align: center;
-    border-top: 5px solid black;
+    border-top: 3px solid black;
 	background-color:#f2f2f2;
 }
 
@@ -390,7 +398,7 @@ footer a:hover{
 
 button {
   background-color: #009999;
-  border: 2px solid black;
+  border: 2px solid #009999;
   color: white;
 	padding: 10px 30px;
   text-align: center;
