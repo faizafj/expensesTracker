@@ -12,7 +12,7 @@
 	<body>
 		<header>
 		<h1>Business Expense Records</h1>
-                <center> <ul class="menu">
+                <center> <ul class="menu" >
               <li><a  href="/">Expenses</a></li>
               <li><a href="/expenses/add">Add New Expense</a></li>
               <li>  <a href="/logout">Log out</a> </li>      
@@ -24,10 +24,10 @@
 			</aside>
 		{{/if}}
 		<main>  
-		<p> Below is a list of all business expenses made, including the price, title, description and date: </p>
+		<p> Below is a list of all business expenses made. Click Images in order to view more details</p>
     <center>
 	<table>
-		<tr><th>Title:</th> <th>Price(£):</th> <th> Description: </th> <th> Category: </th> <th>Date Of Expense:</th> <th>Receipt Image:</th> <th>Actions</th></tr>		
+		<tr><th>Title:</th> <th>Price(£):</th> <th> Description: </th> <th> Category: </th> <th>Date Of Expense:</th> <th>Receipt Image:</th></tr>		
 		{{#each records}}
 		<tr>			
 			<td> {{this.title}} </td>		
@@ -35,8 +35,7 @@
 			<td> {{this.description}} </td>
             <td> {{this.category}} </td>
 			<td> {{this.dateOfExpense}} </td>
-            <td> <img src= "avatars/{{this.receiptImage}}" /> </td>
-            <td> <a href="/expenses/details/{{this.id}}">details</a></td>
+            <td> <a href="/expenses/details/{{this.id}}"> <img src= "avatars/{{this.receiptImage}}" > </a> </td>
 		</tr>
 		{{/each}}
 	</table>		</center>				

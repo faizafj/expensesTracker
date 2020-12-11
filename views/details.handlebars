@@ -24,20 +24,23 @@
 			</aside>
 		{{/if}}
 		<main>  
-            <center><h2>User {{expense.userid}} Item: {{expense.title}}</h2> </center>
-            <p>Purchased by: User {{expense.userid}}</p>
-            <p>{{expense.title}}</p>
-            <p>Price: £{{expense.price}}</p>
-            <p> Description: {{expense.description}}</p>
-            <p> DateTime brought {{expense.dateOfExpense}}</p>
-            <center> <figure>
+            <center><h2>User {{expense.userid}} {{expense.title}}</h2> 
+                <br>
+             <figure>
            <img src="{{host}}/avatars/{{expense.receiptImage}}" />
-                <figcaption> {{expense.title}}</figcaption>
+                <figcaption> Item: {{expense.title}}</figcaption>
             </figure></center>
+            <br>
+            <p class = "receiptDescription">Purchased by: User {{expense.userid}} <br>
+                Title: {{expense.title}}, <br>
+            Price: £{{expense.price}}, <br>
+            Description: {{expense.description}}, <br>
+            Date of Purchase: {{expense.dateOfExpense}}. </p>
 		</main>
            <center class="fixed top left">
             <button class="back">Back</button>
            </center>
+        <br>
         </body>
 	<footer>
        <p><a href="/">Home page</a></p>

@@ -51,12 +51,15 @@ h2 {
 	font-size: 2.5vw;
 	margin: 1vw;
 	margin-left: 0.6vw;
+    color: black;
+    text-decoration: underline;
 }
 
 h3 {
 	font-size: 2vw;
 	margin: 1vw;
 	margin-left: 0.6vw;
+    color: black;
 }
 
 header > a {
@@ -126,7 +129,7 @@ main {
 	margin-top: 2em;
 	padding: 2em;
 	box-sizing: border-box;
-	background-color:#f2f2f2;
+	background-color:white;
 }
 
 main p{
@@ -299,7 +302,7 @@ tr:nth-child(even) {
 
 th {
 	padding: 0.5vw;
-	font-size: 16px;
+	font-size: 14px;
 	text-align: center;
     color: #009999;
     text-decoration: underline;
@@ -309,11 +312,21 @@ th {
 
 td {
 	padding: 0.5vw;
-	font-size: 16px;
+	font-size: 14px;
 	text-align: left;
 	border: black solid 0.5px ; 
 }
 
+td a {
+    color: black;
+    text-decoration: None;
+    text-align: center;
+}
+
+td a:hover {
+    color: #009999;
+    text-decoration: underline;
+}
 
 th:last-child {
 	text-align: center;
@@ -350,10 +363,12 @@ button#add:hover {
 	background-color: white;
 	color: grey;
 }
-
+/* receipt images */
 img {
   width: 50%;
-  height: auto;}
+  height: auto;
+  border: solid 1px black;
+}
 
 /* footer */
 footer {
@@ -387,4 +402,11 @@ button {
 button:hover {
 	background-color: white;
 	color: #009999;
+}
+
+p.receiptDescription{
+    padding: 30px; 
+    border: 2px black solid; 
+    color: black;
+    font-size: 15px;
 }
